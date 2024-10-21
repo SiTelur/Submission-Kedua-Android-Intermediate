@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dicoding Story</string>
+    <string name="message_login_page">"Enter your data first "</string>
+    <string name="title_login_page">Are you ready to upgrade your skill?</string>
+    <string name="signup">Sign Up</string>
+    <string name="login">Log In</string>
+    <string name="greeting">Hello %1$s,</string>
+    <string name="logout">Exit</string>
+    <string name="message_welcome_page">Want to learn Android, iOS, Machine Learning, Cloud, Front-End, Back-End, and other IT fields? Just go to Dicoding!</string>
+    <string name="title_welcome_page">Welcome to Dicoding</string>
+    <string name="title_signup_page">Complete your data below</string>
+    <string name="name">Name</string>
+    <string name="message_main_page">Happy Learning in Dicoding.</string>
+    <string name="error_email">Your Email Not Valid</string>
+    <string name="error_password">" Password must not be less than 8 characters"</string>
+    <string name="account_created_message">The account with %1$s is ready. Come on, log in and learn to code.</string>
+    <string name="account_failed_message">"Your Account Registration Failed "</string>
+    <string name="account_login_success">The account with %1$s is ready. Come on, log in and learn to code.</string>
+    <string name="next">Next</string>
+    <string name="yeah">Hurray!</string>
+    <string name="nay">Oh No.</string>
+    <string name="add_story">Add Story</string>
+    <string name="select_image">Pick Image From Gallery</string>
+    <string name="story_description">Story Description</string>
+    <string name="upload_story">Upload Story</string>
+    <string name="take_picture">Pick Image From Camera</string>
+    <string name="upload_not_valid">You haven\'t selected an image or filled in a description</string>
+    <string name="upload_success">You have successfully uploaded your story</string>
+    <string name="upload_failed">Failed to upload story</string>
+    <string name="widget_error">Story Doesn\'t Exist</string>
+    <string name="app_widget_description">Story</string>
+    <string name="appwidget_text">Story</string>
+</resources>

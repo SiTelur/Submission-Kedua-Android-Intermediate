@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Dicoding Story</string>
+    <string name="signup">Daftar</string>
+    <string name="login">Masuk</string>
+    <string name="message_welcome_page">Mau belajar Android, iOS, Machine Learning, Cloud, Front-End, Back-End, dan bidang IT lainnya? Di Dicoding aja!</string>
+    <string name="title_welcome_page">Selamat datang di Dicoding!</string>
+    <string name="title_signup_page">Lengkapi data dirimu di bawah ini ya</string>
+    <string name="email" translatable="false">Email</string>
+    <string name="password" translatable="false">Password</string>
+    <string name="message_login_page">Masukkan dulu datamu ya</string>
+    <string name="title_login_page">Sudah siap untuk upgrade skill?</string>
+    <string name="name">Nama</string>
+    <string name="message_main_page">Selamat Belajar di Dicoding.</string>
+    <string name="greeting">Halo %1$s,</string>
+    <string name="logout">Keluar</string>
+    <string name="error_email">Email Anda Tidak Valid</string>
+    <string name="error_password">Password tidak boleh kurang dari 8 karakter</string>
+    <string name="account_created_message">Akun dengan %1$s sudah jadi nih. Yuk, login dan belajar coding.</string>
+    <string name="account_failed_message">Registrasi Akun Anda Gagal</string>
+    <string name="account_login_success">Anda berhasil login %1$s. Sudah tidak sabar untuk belajar ya?</string>
+    <string name="next">Selanjutnya</string>
+    <string name="yeah">Hore!</string>
+    <string name="nay">Oh Tidak</string>
+    <string name="add_story">Tambah Cerita</string>
+    <string name="select_image">Ambil Gambar Dari Galeri</string>
+    <string name="story_description">Deskripsi Cerita</string>
+    <string name="upload_story">Unggah Cerita</string>
+    <string name="take_picture">Ambil Gambar Dari Kamera</string>
+    <string name="upload_not_valid">Anda belum memilih gambar atau mengisi deskripsi</string>
+    <string name="upload_success">Anda berhasil mengunggah cerita</string>
+    <string name="upload_failed">Gagal mengunggah cerita</string>
+    <string name="widget_error">Cerita Tidak Ada</string>
+    <string name="app_widget_description">Cerita</string>
+    <string name="appwidget_text">Cerita</string>
+</resources>

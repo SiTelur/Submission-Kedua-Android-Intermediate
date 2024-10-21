@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dicoding Story</string>
+    <string name="account_login_success">Sampeyan wis kasil mlebu %1$s. Ora sabar sinau, ya?</string>
+    <string name="next">Salajengipun</string>
+    <string name="yeah">Hore!</string>
+    <string name="nay">Waduh</string>
+    <string name="add_story">Tambah Crita</string>
+    <string name="select_image">Njupuk Gambar Saka Galeri</string>
+    <string name="story_description">Deskripsi Crita</string>
+    <string name="upload_story">Upload Crita</string>
+    <string name="take_picture">Njupuk Gambar Saka Kamera</string>
+    <string name="upload_not_valid">Sampeyan durung milih gambar utawa ngisi katrangan</string>
+    <string name="upload_success">Sampeyan wis kasil ngunggah crita sampeyan</string>
+    <string name="upload_failed">Gagal ngunggah crita</string>
+    <string name="widget_error">" Crita Ora Ana"</string>
+    <string name="app_widget_description">Crita</string>
+    <string name="appwidget_text">Crita</string>
+    <string name="greeting">Halo %1$s,</string>
+    <string name="logout">Metu</string>
+    <string name="error_email">Email sampeyan ora sah</string>
+    <string name="error_password">Tembung sandhi kudu ora kurang saka 8 karakter</string>
+    <string name="account_created_message">Akun karo %1$s wis siyap. Ayo, mlebu lan sinau kode.</string>
+    <string name="account_failed_message">Ndhaptar Akun Sampeyan Gagal</string>
+    <string name="message_login_page">Ketik data sampeyan dhisik</string>
+    <string name="title_login_page">Apa sampeyan siap nganyarke katrampilan sampeyan?</string>
+    <string name="name">Jeneng</string>
+    <string name="message_main_page">Selamat Sinau Ing Dicoding.</string>
+    <string name="signup">Daftar</string>
+    <string name="login">Melbu</string>
+    <string name="message_welcome_page">Pengin sinau Android, iOS, Machine Learning, Cloud, Front-End, Back-End, lan lapangan IT liyane? Cukup Menyang Dicoding Wae!</string>
+    <string name="title_welcome_page">Sugeng rawuh ing Dicoding!</string>
+    <string name="title_signup_page">Rampungake data ing ngisor iki</string>
+</resources>
