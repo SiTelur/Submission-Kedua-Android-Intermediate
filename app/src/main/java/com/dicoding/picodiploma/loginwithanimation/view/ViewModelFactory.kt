@@ -7,9 +7,11 @@ import com.dicoding.picodiploma.loginwithanimation.data.StoryRepository
 import com.dicoding.picodiploma.loginwithanimation.di.Injection
 import com.dicoding.picodiploma.loginwithanimation.view.login.LoginViewModel
 import com.dicoding.picodiploma.loginwithanimation.view.main.MainViewModel
+import com.dicoding.picodiploma.loginwithanimation.view.maps.MapsViewModel
 import com.dicoding.picodiploma.loginwithanimation.view.signup.SignupViewModel
 import com.dicoding.picodiploma.loginwithanimation.view.upload.UploadViewModel
 
+@Suppress("UNCHECKED_CAST")
 class ViewModelFactory(private val storyRepository: StoryRepository) :
     ViewModelProvider.NewInstanceFactory() {
 
@@ -29,6 +31,10 @@ class ViewModelFactory(private val storyRepository: StoryRepository) :
 
             modelClass.isAssignableFrom(UploadViewModel::class.java) -> {
                 UploadViewModel(storyRepository) as T
+            }
+
+            modelClass.isAssignableFrom(MapsViewModel::class.java) -> {
+                MapsViewModel(storyRepository) as T
             }
 
 

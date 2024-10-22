@@ -32,4 +32,6 @@
     <string name="widget_error">Cerita Tidak Ada</string>
     <string name="app_widget_description">Cerita</string>
     <string name="appwidget_text">Cerita</string>
+    <string name="map">Map</string>
+
 </resources>

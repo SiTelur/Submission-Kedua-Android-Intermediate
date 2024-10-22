@@ -30,7 +30,8 @@
         android:layout_marginEnd="32dp"
         android:text="@string/title_welcome_page"
         android:textColor="@color/black"
-        android:textSize="20sp"     android:alpha="0"
+        android:textSize="20sp"
+        android:alpha="0"
         tools:alpha="1"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +48,8 @@
         android:layout_marginEnd="32dp"
         android:text="@string/message_welcome_page"
         android:textColor="@color/navy"
-        android:textSize="14sp"     android:alpha="0"
+        android:textSize="14sp"
+        android:alpha="0"
         tools:alpha="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -59,7 +61,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"     android:alpha="0"
+        android:layout_marginTop="32dp"
+        android:alpha="0"
         tools:alpha="1"
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/navy"
@@ -71,7 +74,8 @@
     <Button
         android:id="@+id/signupButton"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"     android:alpha="0"
+        android:layout_height="wrap_content"
+        android:alpha="0"
         tools:alpha="1"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
@@ -82,8 +86,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.96"
         app:layout_constraintStart_toStartOf="@+id/guidelineVertical"
-        app:layout_constraintTop_toBottomOf="@+id/descTextView"
-         />
+        app:layout_constraintTop_toBottomOf="@+id/descTextView" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineHorizontal"

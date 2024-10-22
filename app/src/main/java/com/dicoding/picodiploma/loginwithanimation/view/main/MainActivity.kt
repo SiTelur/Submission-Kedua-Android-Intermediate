@@ -12,6 +12,7 @@ import com.dicoding.picodiploma.loginwithanimation.data.Result
 import com.dicoding.picodiploma.loginwithanimation.databinding.ActivityMainBinding
 import com.dicoding.picodiploma.loginwithanimation.utils.StoryAdapter
 import com.dicoding.picodiploma.loginwithanimation.view.ViewModelFactory
+import com.dicoding.picodiploma.loginwithanimation.view.maps.MapsActivity
 import com.dicoding.picodiploma.loginwithanimation.view.upload.UploadActivity
 import com.dicoding.picodiploma.loginwithanimation.view.welcome.WelcomeActivity
 import com.google.android.material.snackbar.Snackbar
@@ -73,6 +74,13 @@ class MainActivity : AppCompatActivity() {
                 viewModel.logout()
                 return true
             }
+
+            R.id.action_maps -> {
+                val map = Intent(this,MapsActivity::class.java)
+                startActivity(map)
+                return true
+            }
+
 
             else -> return super.onOptionsItemSelected(item)
         }

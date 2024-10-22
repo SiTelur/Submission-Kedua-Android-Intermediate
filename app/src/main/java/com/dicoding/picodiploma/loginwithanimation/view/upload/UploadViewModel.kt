@@ -5,6 +5,7 @@ import com.dicoding.picodiploma.loginwithanimation.data.StoryRepository
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 
-class UploadViewModel(private val repository: StoryRepository) :ViewModel() {
-    fun uploadStory(file : MultipartBody.Part, description: RequestBody) = repository.uploadStory(file,description)
+class UploadViewModel(private val repository: StoryRepository) : ViewModel() {
+    fun uploadStory(file: MultipartBody.Part, description: RequestBody) =
+        repository.uploadStory(file, description)
 }

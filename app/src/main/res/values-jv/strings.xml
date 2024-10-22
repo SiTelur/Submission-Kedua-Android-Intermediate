@@ -31,4 +31,5 @@
     <string name="message_welcome_page">Pengin sinau Android, iOS, Machine Learning, Cloud, Front-End, Back-End, lan lapangan IT liyane? Cukup Menyang Dicoding Wae!</string>
     <string name="title_welcome_page">Sugeng rawuh ing Dicoding!</string>
     <string name="title_signup_page">Rampungake data ing ngisor iki</string>
+    <string name="map">Map</string>
 </resources>

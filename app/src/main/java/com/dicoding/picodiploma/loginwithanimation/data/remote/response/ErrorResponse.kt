@@ -6,5 +6,5 @@ data class ErrorResponse(
     @field:SerializedName("error")
     val error: Boolean? = null,
     @field:SerializedName("message")
-    val message: String? = null
+    val message: String? = null,
 )
