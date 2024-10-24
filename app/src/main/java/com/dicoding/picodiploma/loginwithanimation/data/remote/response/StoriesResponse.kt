@@ -1,6 +1,7 @@
 package com.dicoding.picodiploma.loginwithanimation.data.remote.response
 
 import android.os.Parcelable
+import com.dicoding.picodiploma.loginwithanimation.data.local.StoryPerson
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
@@ -40,3 +41,17 @@ data class ListStoryItem(
     @field:SerializedName("lat")
     val lat: Double,
 ) : Parcelable
+
+fun List<ListStoryItem>.toStoryPersonList(): List<StoryPerson> {
+    return this.map { listStoryItem ->
+        StoryPerson(
+            photoUrl = listStoryItem.photoUrl,
+            createdAt = listStoryItem.createdAt,
+            name = listStoryItem.name,
+            description = listStoryItem.description,
+            lon = listStoryItem.lon,
+            id = listStoryItem.id,
+            lat = listStoryItem.lat
+        )
+    }
+}

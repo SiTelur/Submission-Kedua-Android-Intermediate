@@ -1,10 +1,8 @@
 package com.dicoding.picodiploma.loginwithanimation.view
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.dicoding.picodiploma.loginwithanimation.data.StoryRepository
-import com.dicoding.picodiploma.loginwithanimation.di.Injection
+import com.dicoding.picodiploma.loginwithanimation.domain.repository.StoryRepository
 import com.dicoding.picodiploma.loginwithanimation.view.login.LoginViewModel
 import com.dicoding.picodiploma.loginwithanimation.view.main.MainViewModel
 import com.dicoding.picodiploma.loginwithanimation.view.maps.MapsViewModel
@@ -46,14 +44,14 @@ class ViewModelFactory(private val storyRepository: StoryRepository) :
         @Volatile
         private var INSTANCE: ViewModelFactory? = null
 
-        @JvmStatic
-        fun getInstance(context: Context): ViewModelFactory {
-            if (INSTANCE == null) {
-                synchronized(ViewModelFactory::class.java) {
-                    INSTANCE = ViewModelFactory(Injection.provideRepository(context))
-                }
-            }
-            return INSTANCE as ViewModelFactory
-        }
+//        @JvmStatic
+//        fun getInstance(context: Application): ViewModelFactory {
+//            if (INSTANCE == null) {
+//                synchronized(ViewModelFactory::class.java) {
+//                    INSTANCE = ViewModelFactory(Injection.provideRepository(context))
+//                }
+//            }
+//            return INSTANCE as ViewModelFactory
+//        }
     }
 }

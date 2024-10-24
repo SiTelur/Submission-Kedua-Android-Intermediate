@@ -8,27 +8,30 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.picodiploma.loginwithanimation.R
-import com.dicoding.picodiploma.loginwithanimation.data.Result
 import com.dicoding.picodiploma.loginwithanimation.databinding.ActivityMainBinding
+import com.dicoding.picodiploma.loginwithanimation.utils.LoadingStateAdapter
 import com.dicoding.picodiploma.loginwithanimation.utils.StoryAdapter
-import com.dicoding.picodiploma.loginwithanimation.view.ViewModelFactory
 import com.dicoding.picodiploma.loginwithanimation.view.maps.MapsActivity
 import com.dicoding.picodiploma.loginwithanimation.view.upload.UploadActivity
 import com.dicoding.picodiploma.loginwithanimation.view.welcome.WelcomeActivity
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.runBlocking
+import java.util.concurrent.Delayed
+import java.util.concurrent.Executor
+import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    private val viewModel by viewModels<MainViewModel> {
-        ViewModelFactory.getInstance(application)
-    }
+    private val viewModel by viewModels<MainViewModel>()
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val adapter = StoryAdapter()
-        binding.rvStory.adapter = adapter
+
         viewModel.getSession().observe(this) { user ->
             if (!user.isLogin) {
                 startActivity(Intent(this, WelcomeActivity::class.java))
@@ -40,17 +43,19 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, UploadActivity::class.java)
             startActivity(intent)
         }
+        val adapter = StoryAdapter()
+        binding.rvStory.adapter = adapter.withLoadStateFooter(footer = LoadingStateAdapter {
+            adapter.retry()
+        })
+        showLoading(true)
+        viewModel.getStories.observe(this) { stories ->
 
-        viewModel.getStories().observe(this) { stories ->
-            when (stories) {
-                is Result.Error -> showSnackBar(stories.error)
-                Result.Loading -> showLoading(true)
-                is Result.Success -> {
-                    showLoading(false)
-                    adapter.submitList(stories.data)
-                }
-            }
+            adapter.submitData(lifecycle, stories)
         }
+
+        Executors.newSingleThreadScheduledExecutor().schedule({
+            showLoading(false)
+        },1,TimeUnit.SECONDS)
 
     }
 
@@ -76,7 +81,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.action_maps -> {
-                val map = Intent(this,MapsActivity::class.java)
+                val map = Intent(this, MapsActivity::class.java)
                 startActivity(map)
                 return true
             }
@@ -93,7 +98,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getStories()
+        viewModel.getStories
     }
 
 }

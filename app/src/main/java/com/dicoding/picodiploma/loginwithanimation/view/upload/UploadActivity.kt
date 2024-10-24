@@ -18,6 +18,7 @@ import com.dicoding.picodiploma.loginwithanimation.utils.reduceFileImage
 import com.dicoding.picodiploma.loginwithanimation.utils.uriToFile
 import com.dicoding.picodiploma.loginwithanimation.view.ViewModelFactory
 import com.dicoding.picodiploma.loginwithanimation.view.main.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import okhttp3.MediaType.Companion.toMediaType
@@ -25,12 +26,11 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 
+@AndroidEntryPoint
 class UploadActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUploadBinding
     private var currentImageUri: Uri? = null
-    private val viewModel by viewModels<UploadViewModel> {
-        ViewModelFactory.getInstance(this)
-    }
+    private val viewModel by viewModels<UploadViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,13 +54,13 @@ class UploadActivity : AppCompatActivity() {
 
                     showLoading(true)
 
-                    val requestBody = desc.toRequestBody("text/plain".toMediaType())
+                    val description = desc.toRequestBody("text/plain".toMediaType())
                     val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
 
                     val multipartBody =
                         MultipartBody.Part.createFormData("photo", imageFile.name, requestImageFile)
 
-                    viewModel.uploadStory(multipartBody, requestBody).observe(this) { response ->
+                    viewModel.uploadStory(multipartBody, description).observe(this) { response ->
                         when (response) {
                             is Result.Error -> showToast(getString(R.string.upload_failed))
                             Result.Loading -> showLoading(true)

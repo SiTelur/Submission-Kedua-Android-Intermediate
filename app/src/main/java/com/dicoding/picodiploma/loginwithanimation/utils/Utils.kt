@@ -12,6 +12,8 @@ import android.provider.MediaStore
 import androidx.core.content.FileProvider
 import androidx.exifinterface.media.ExifInterface
 import com.dicoding.picodiploma.loginwithanimation.BuildConfig
+import com.dicoding.picodiploma.loginwithanimation.data.local.StoryPerson
+import com.dicoding.picodiploma.loginwithanimation.data.remote.response.ListStoryItem
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
@@ -104,4 +106,18 @@ fun rotateImage(source: Bitmap, angle: Float): Bitmap? {
     return Bitmap.createBitmap(
         source, 0, 0, source.width, source.height, matrix, true
     )
+}
+
+fun List<StoryPerson>.toListStoryItemList(): List<ListStoryItem> {
+    return this.map { storyPerson ->
+        ListStoryItem(
+            photoUrl = storyPerson.photoUrl,
+            createdAt = storyPerson.createdAt,
+            name = storyPerson.name,
+            description = storyPerson.description,
+            lon = storyPerson.lon,
+            id = storyPerson.id,
+            lat = storyPerson.lat
+        )
+    }
 }

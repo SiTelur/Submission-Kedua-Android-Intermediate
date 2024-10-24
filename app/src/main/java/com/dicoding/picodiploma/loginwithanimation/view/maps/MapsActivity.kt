@@ -19,15 +19,15 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
     private val boundsBuilder = LatLngBounds.Builder()
-    private val mapsViewModel: MapsViewModel by viewModels<MapsViewModel> {
-        ViewModelFactory.getInstance(this)
-    }
+    private val mapsViewModel: MapsViewModel by viewModels<MapsViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,7 +89,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun addMarker(data :List<ListStoryItem>){
         data.forEach { data ->
             val latLng = LatLng(data.lat, data.lon)
-            mMap.addMarker(MarkerOptions().position(latLng).title(data.name))
+            mMap.addMarker(MarkerOptions().position(latLng).title(data.name).snippet(data.description))
             boundsBuilder.include(latLng)
         }
     }
