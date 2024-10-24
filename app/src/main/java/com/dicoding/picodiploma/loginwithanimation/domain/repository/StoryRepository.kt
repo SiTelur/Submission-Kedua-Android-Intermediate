@@ -27,5 +27,7 @@ interface StoryRepository {
     fun uploadStory(
         file: MultipartBody.Part,
         description: RequestBody,
+        lat: RequestBody?,
+        lon: RequestBody?
     ): LiveData<Result<UploadStoryResponse>>
 }

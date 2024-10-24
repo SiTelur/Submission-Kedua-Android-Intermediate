@@ -34,5 +34,6 @@
     <string name="appwidget_text">Cerita</string>
     <string name="map">Map</string>
     <string name="retry">Tolong, Coba Lagi</string>
+    <string name="location">Masukkan Lokasi</string>
 
 </resources>

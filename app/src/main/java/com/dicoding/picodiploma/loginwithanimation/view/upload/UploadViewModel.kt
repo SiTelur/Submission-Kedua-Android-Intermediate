@@ -9,6 +9,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class UploadViewModel @Inject constructor(private val repository: StoryRepository) : ViewModel() {
-    fun uploadStory(file: MultipartBody.Part, description: RequestBody) =
-        repository.uploadStory(file, description)
+    fun uploadStory(file: MultipartBody.Part, description: RequestBody,lat : RequestBody?,lon : RequestBody?) =
+        repository.uploadStory(file, description,lat,lon)
 }

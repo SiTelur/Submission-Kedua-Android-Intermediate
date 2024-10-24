@@ -13,7 +13,7 @@
     <string name="upload_not_valid">Sampeyan durung milih gambar utawa ngisi katrangan</string>
     <string name="upload_success">Sampeyan wis kasil ngunggah crita sampeyan</string>
     <string name="upload_failed">Gagal ngunggah crita</string>
-    <string name="widget_error">" Crita Ora Ana"</string>
+    <string name="widget_error">Crita Ora Ana</string>
     <string name="app_widget_description">Crita</string>
     <string name="appwidget_text">Crita</string>
     <string name="greeting">Halo %1$s,</string>
@@ -33,4 +33,5 @@
     <string name="title_signup_page">Rampungake data ing ngisor iki</string>
     <string name="map">Map</string>
     <string name="retry">Ngapunten, Coba Maneh</string>
+    <string name="location">Tambahaken Lokasi</string>
 </resources>

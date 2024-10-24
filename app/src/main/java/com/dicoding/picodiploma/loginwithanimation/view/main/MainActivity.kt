@@ -16,11 +16,6 @@ import com.dicoding.picodiploma.loginwithanimation.view.upload.UploadActivity
 import com.dicoding.picodiploma.loginwithanimation.view.welcome.WelcomeActivity
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.runBlocking
-import java.util.concurrent.Delayed
-import java.util.concurrent.Executor
-import java.util.concurrent.Executors
-import java.util.concurrent.TimeUnit
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -52,11 +47,6 @@ class MainActivity : AppCompatActivity() {
 
             adapter.submitData(lifecycle, stories)
         }
-
-        Executors.newSingleThreadScheduledExecutor().schedule({
-            showLoading(false)
-        },1,TimeUnit.SECONDS)
-
     }
 
     private fun showSnackBar(message: String) {

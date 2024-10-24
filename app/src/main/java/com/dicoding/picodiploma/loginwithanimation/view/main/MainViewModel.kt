@@ -8,8 +8,6 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.dicoding.picodiploma.loginwithanimation.data.local.StoryPerson
 import com.dicoding.picodiploma.loginwithanimation.data.pref.UserModel
-import com.dicoding.picodiploma.loginwithanimation.data.remote.response.ListStoryItem
-import com.dicoding.picodiploma.loginwithanimation.data.remote.response.UploadStoryResponse
 import com.dicoding.picodiploma.loginwithanimation.domain.repository.StoryRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -27,7 +25,8 @@ class MainViewModel @Inject constructor(private val repository: StoryRepository)
         }
     }
 
-    val getStories : LiveData<PagingData<StoryPerson>> = repository.loadStory().cachedIn(viewModelScope)
+    val getStories: LiveData<PagingData<StoryPerson>> =
+        repository.loadStory().cachedIn(viewModelScope)
 
 
 }

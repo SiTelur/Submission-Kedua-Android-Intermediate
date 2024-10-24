@@ -21,6 +21,16 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/backgrounds/scenic" />
 
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/materialSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/location"
+            app:layout_constraintEnd_toEndOf="@+id/btn_take_image"
+            app:layout_constraintStart_toStartOf="@+id/btn_take_image"
+            app:layout_constraintTop_toBottomOf="@+id/btn_take_image" />
         <Button
             android:id="@+id/btn_select_image"
             android:layout_width="wrap_content"
@@ -48,7 +58,7 @@
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_take_image">
+            app:layout_constraintTop_toBottomOf="@+id/materialSwitch">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/ed_add_description"

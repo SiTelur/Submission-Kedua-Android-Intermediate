@@ -33,4 +33,5 @@
     <string name="appwidget_text">Story</string>
     <string name="map">Map</string>
     <string name="retry">Please, Try Again</string>
+    <string name="location">Insert Location</string>
 </resources>

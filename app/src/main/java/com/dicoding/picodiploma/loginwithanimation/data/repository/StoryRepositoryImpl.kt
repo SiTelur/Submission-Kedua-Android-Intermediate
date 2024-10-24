@@ -110,11 +110,13 @@ class StoryRepositoryImpl @Inject constructor(
     override fun uploadStory(
         file: MultipartBody.Part,
         description: RequestBody,
+        lat: RequestBody?,
+        lon: RequestBody?
     ): LiveData<Result<UploadStoryResponse>> = liveData {
         emit(Result.Loading)
         try {
             val token = userPreference.getSession().first().token
-            val response = apiService.postStory("Bearer $token", file, description)
+            val response = apiService.postStory("Bearer $token", file, description,lat,lon)
             emit(Result.Success(response))
         } catch (e: HttpException) {
             val jsonInString = e.response()?.errorBody()?.string()
