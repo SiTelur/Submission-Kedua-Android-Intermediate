@@ -37,7 +37,7 @@ class UploadActivity : AppCompatActivity() {
     private var currentImageUri: Uri? = null
     private val viewModel by viewModels<UploadViewModel>()
     private lateinit var fusedLocationClient: FusedLocationProviderClient
-     private var location : Location? = null
+    private var location: Location? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +56,7 @@ class UploadActivity : AppCompatActivity() {
         }
 
         binding.buttonAdd.setOnClickListener {
-            if (!binding.edAddDescription.text.isNullOrBlank() && currentImageUri != null ) {
+            if (!binding.edAddDescription.text.isNullOrBlank() && currentImageUri != null) {
                 currentImageUri?.let { uri ->
                     val imageFile = uriToFile(uri, this).reduceFileImage()
                     val desc = binding.edAddDescription.text.toString()
@@ -64,29 +64,32 @@ class UploadActivity : AppCompatActivity() {
                     showLoading(true)
 
                     val description = desc.toRequestBody("text/plain".toMediaType())
-                    val lat = if (location != null) location?.latitude.toString().toRequestBody("number/float".toMediaType()) else "0".toRequestBody("number/float".toMediaType())
-                    val lon = if (location != null) location?.longitude.toString().toRequestBody("number/float".toMediaType()) else "0".toRequestBody("number/float".toMediaType())
+                    val lat = if (location != null) location?.latitude.toString()
+                        .toRequestBody("number/float".toMediaType()) else "0".toRequestBody("number/float".toMediaType())
+                    val lon = if (location != null) location?.longitude.toString()
+                        .toRequestBody("number/float".toMediaType()) else "0".toRequestBody("number/float".toMediaType())
                     val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
 
                     val multipartBody =
                         MultipartBody.Part.createFormData("photo", imageFile.name, requestImageFile)
 
-                    viewModel.uploadStory(multipartBody, description,lat,lon).observe(this) { response ->
-                        when (response) {
-                            is Result.Error -> showToast(getString(R.string.upload_failed))
-                            Result.Loading -> showLoading(true)
-                            is Result.Success -> {
-                                showToast(getString(R.string.upload_success))
-                                runBlocking {
-                                    delay(500)
+                    viewModel.uploadStory(multipartBody, description, lat, lon)
+                        .observe(this) { response ->
+                            when (response) {
+                                is Result.Error -> showToast(getString(R.string.upload_failed))
+                                Result.Loading -> showLoading(true)
+                                is Result.Success -> {
+                                    showToast(getString(R.string.upload_success))
+                                    runBlocking {
+                                        delay(500)
+                                    }
+                                    val intent = Intent(this, MainActivity::class.java)
+                                    intent.flags =
+                                        Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                                    startActivity(intent)
                                 }
-                                val intent = Intent(this, MainActivity::class.java)
-                                intent.flags =
-                                    Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                                startActivity(intent)
                             }
                         }
-                    }
                 }
             } else {
                 showToast(getString(R.string.upload_not_valid))
@@ -97,9 +100,9 @@ class UploadActivity : AppCompatActivity() {
         binding.materialSwitch.isChecked = isLocationChecked
 
         binding.materialSwitch.setOnCheckedChangeListener { compoundButton, b ->
-            if (b){
+            if (b) {
                 getMyLastLocation()
-            }else {
+            } else {
                 location = null
             }
         }
@@ -124,16 +127,16 @@ class UploadActivity : AppCompatActivity() {
             }
         }
 
-    fun imageShow() {
+    private fun imageShow() {
         currentImageUri?.let { uri ->
             binding.ivStoryImage.setImageURI(uri)
         }
     }
 
-    private fun checkPermission(permission: String): Boolean {
+    private fun checkPermission(): Boolean {
         return ContextCompat.checkSelfPermission(
             this,
-            permission
+            Manifest.permission.ACCESS_COARSE_LOCATION
         ) == PackageManager.PERMISSION_GRANTED
     }
 
@@ -154,10 +157,10 @@ class UploadActivity : AppCompatActivity() {
         }
 
     private fun getMyLastLocation() {
-        if (checkPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
+        if (checkPermission()
         ) {
             fusedLocationClient.lastLocation.addOnSuccessListener { location ->
-                 this.location = location
+                this.location = location
             }
         } else {
             requestPermissionLauncher.launch(

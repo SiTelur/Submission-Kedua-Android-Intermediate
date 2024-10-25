@@ -14,9 +14,9 @@ import com.dicoding.picodiploma.loginwithanimation.utils.StoryAdapter
 import com.dicoding.picodiploma.loginwithanimation.view.maps.MapsActivity
 import com.dicoding.picodiploma.loginwithanimation.view.upload.UploadActivity
 import com.dicoding.picodiploma.loginwithanimation.view.welcome.WelcomeActivity
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
+@Suppress("SameParameterValue")
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<MainViewModel>()
@@ -47,12 +47,6 @@ class MainActivity : AppCompatActivity() {
 
             adapter.submitData(lifecycle, stories)
         }
-    }
-
-    private fun showSnackBar(message: String) {
-        showLoading(false)
-        Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -31,13 +31,16 @@ android {
             )
         }
     }
+    testOptions {
+        unitTests.isReturnDefaultValues = true
+    }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
-        freeCompilerArgs = arrayListOf("-Xopt-in=kotlin.RequiresOptIn")
+        jvmTarget = "17"
+        freeCompilerArgs += ("-Xopt-in=kotlin.RequiresOptIn")
     }
     buildFeatures {
         viewBinding = true
@@ -57,6 +60,9 @@ dependencies {
     implementation("androidx.room:room-ktx:2.6.1")
     implementation("androidx.room:room-paging:2.6.1")
     implementation("com.google.android.gms:play-services-location:21.3.0")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.11.3")
+
+
     ksp("androidx.room:room-compiler:2.6.1")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
@@ -75,4 +81,14 @@ dependencies {
 
     implementation("com.google.dagger:hilt-android:2.52")
     ksp("com.google.dagger:hilt-android-compiler:2.52")
+
+    androidTestImplementation("androidx.arch.core:core-testing:2.2.0")
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0")
+
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0")
+    testImplementation("org.mockito:mockito-inline:5.2.0")
+    testImplementation("org.mockito:mockito-core:5.14.2")
+
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.4.0")
 }

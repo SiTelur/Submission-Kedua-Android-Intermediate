@@ -6,7 +6,6 @@ import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
 import com.dicoding.picodiploma.loginwithanimation.data.local.RemoteKeys
-import com.dicoding.picodiploma.loginwithanimation.data.local.StoryDao
 import com.dicoding.picodiploma.loginwithanimation.data.local.StoryDatabase
 import com.dicoding.picodiploma.loginwithanimation.data.local.StoryPerson
 import com.dicoding.picodiploma.loginwithanimation.data.pref.UserPreference

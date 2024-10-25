@@ -9,17 +9,15 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.picodiploma.loginwithanimation.data.local.StoryPerson
-import com.dicoding.picodiploma.loginwithanimation.data.remote.response.ListStoryItem
 import com.dicoding.picodiploma.loginwithanimation.databinding.StoryItemLayoutBinding
 import com.dicoding.picodiploma.loginwithanimation.view.detail.DetailActivity
 
 class StoryAdapter : PagingDataAdapter<StoryPerson, StoryAdapter.StoryViewHolder>(DIFF_CALLBACK) {
 
-    inner class StoryViewHolder(val binding: StoryItemLayoutBinding) :
+    inner class StoryViewHolder(private val binding: StoryItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: StoryPerson) {
             Glide.with(binding.root.context)

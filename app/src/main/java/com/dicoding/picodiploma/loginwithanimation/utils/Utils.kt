@@ -12,8 +12,6 @@ import android.provider.MediaStore
 import androidx.core.content.FileProvider
 import androidx.exifinterface.media.ExifInterface
 import com.dicoding.picodiploma.loginwithanimation.BuildConfig
-import com.dicoding.picodiploma.loginwithanimation.data.local.StoryPerson
-import com.dicoding.picodiploma.loginwithanimation.data.remote.response.ListStoryItem
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
@@ -31,12 +29,12 @@ fun File.reduceFileImage(): File {
     var streamLength: Int
     do {
         val bmpStream = ByteArrayOutputStream()
-        bitmap?.compress(Bitmap.CompressFormat.JPEG, compressQuality, bmpStream)
+        bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, bmpStream)
         val bmpPicByteArray = bmpStream.toByteArray()
         streamLength = bmpPicByteArray.size
         compressQuality -= 5
     } while (streamLength > MAXIMAL_SIZE)
-    bitmap?.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
+    bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
     return file
 }
 
@@ -87,7 +85,7 @@ fun uriToFile(imageUri: Uri, context: Context): File {
     return myFile
 }
 
-fun Bitmap.getRotatedBitmap(file: File): Bitmap? {
+fun Bitmap.getRotatedBitmap(file: File): Bitmap {
     val orientation = ExifInterface(file).getAttributeInt(
         ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED
     )
@@ -100,7 +98,7 @@ fun Bitmap.getRotatedBitmap(file: File): Bitmap? {
     }
 }
 
-fun rotateImage(source: Bitmap, angle: Float): Bitmap? {
+fun rotateImage(source: Bitmap, angle: Float): Bitmap {
     val matrix = Matrix()
     matrix.postRotate(angle)
     return Bitmap.createBitmap(
@@ -108,16 +106,3 @@ fun rotateImage(source: Bitmap, angle: Float): Bitmap? {
     )
 }
 
-fun List<StoryPerson>.toListStoryItemList(): List<ListStoryItem> {
-    return this.map { storyPerson ->
-        ListStoryItem(
-            photoUrl = storyPerson.photoUrl,
-            createdAt = storyPerson.createdAt,
-            name = storyPerson.name,
-            description = storyPerson.description,
-            lon = storyPerson.lon,
-            id = storyPerson.id,
-            lat = storyPerson.lat
-        )
-    }
-}

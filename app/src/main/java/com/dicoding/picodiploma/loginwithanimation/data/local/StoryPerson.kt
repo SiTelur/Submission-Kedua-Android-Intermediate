@@ -3,7 +3,6 @@ package com.dicoding.picodiploma.loginwithanimation.data.local
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.dicoding.picodiploma.loginwithanimation.data.remote.response.ListStoryItem
 import kotlinx.parcelize.Parcelize
 
 @Entity

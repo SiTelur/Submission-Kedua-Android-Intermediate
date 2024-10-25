@@ -11,7 +11,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Inject
 import javax.inject.Singleton
 
 @Module
@@ -20,13 +19,13 @@ object Injection {
 
     @Provides
     @Singleton
-    fun provideApiService() : ApiService {
+    fun provideApiService(): ApiService {
         return ApiConfig.getApiService()
     }
 
     @Provides
     @Singleton
-    fun provideUserPreference(context: Application) : UserPreference{
+    fun provideUserPreference(context: Application): UserPreference {
         return UserPreference.getInstance(context.dataStore)
     }
 
@@ -38,7 +37,7 @@ object Injection {
 
     @Provides
     @Singleton
-    fun provideStoryDao(database: StoryDatabase) : StoryDao {
+    fun provideStoryDao(database: StoryDatabase): StoryDao {
         return database.storyDao()
     }
 }

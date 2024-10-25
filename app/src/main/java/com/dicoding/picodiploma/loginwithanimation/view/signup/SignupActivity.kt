@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.picodiploma.loginwithanimation.R
 import com.dicoding.picodiploma.loginwithanimation.data.Result
 import com.dicoding.picodiploma.loginwithanimation.databinding.ActivitySignupBinding
-import com.dicoding.picodiploma.loginwithanimation.view.ViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

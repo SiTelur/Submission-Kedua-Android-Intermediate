@@ -10,7 +10,6 @@ import com.dicoding.picodiploma.loginwithanimation.R
 import com.dicoding.picodiploma.loginwithanimation.data.Result
 import com.dicoding.picodiploma.loginwithanimation.data.remote.response.ListStoryItem
 import com.dicoding.picodiploma.loginwithanimation.databinding.ActivityMapsBinding
-import com.dicoding.picodiploma.loginwithanimation.view.ViewModelFactory
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback

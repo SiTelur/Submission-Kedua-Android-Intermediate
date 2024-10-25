@@ -29,7 +29,7 @@ class StackRemoteViewFactory(
             val token = userPreference.getSession().first().token
             try {
                 mWidgetItems = apiService.getStories("Bearer $token").listStory
-            } catch (e: Exception) {
+            } catch (_: Exception) {
 
             }
         }
